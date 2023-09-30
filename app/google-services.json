@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1089519504890",
+    "project_id": "expressimo-511ce",
+    "storage_bucket": "expressimo-511ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089519504890:android:a16e902dbc39d37bc5a843",
+        "android_client_info": {
+          "package_name": "com.example.expressimo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089519504890-8femo361pki1as45mpedbsvju7r41t85.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.expressimo",
+            "certificate_hash": "fb0dc2668ab58b2f3a1d228031ec2729473febcc"
+          }
+        },
+        {
+          "client_id": "1089519504890-5lvsm6mv5evmkmn6pof8lql72uf3lv2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuMHZDZRILw0F_5usRZl3Ftc6a3EHYYSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089519504890-5lvsm6mv5evmkmn6pof8lql72uf3lv2j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
