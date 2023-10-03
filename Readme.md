@@ -2,24 +2,24 @@
 
 ## *Vibhor Gupta*
 
-**Expressimo** is a fun mobile application that allows users to express themselves using emojis in their status updates. It uses firebase cloud services to update the status in the cloud and in all the devices of existing users.
+**Expressimo** is a fun mobile application that allows users to express themselves using emojis in their status updates. The app is a user-friendly social platform, featuring Google Authentication for secure login and Cloud Firestore for real-time data storage, enabling users to update statuses using emojis and connect with friends.
 
 
 ## Functionality
 
 The following functionality is completed:
 
-**Google Authentication Integration:**
+**1. Google Authentication Integration:**
 
 * Implemented Google Authentication for user sign-in and sign-up.
 * Allows users to securely authenticate using their Google accounts.
 
-**Cloud Firestore for Real-time Database:**
+**2. Cloud Firestore for Real-time Database:**
 
 * Utilized Cloud Firestore as the real-time database for storing user data and app content.
 * Offers scalable, NoSQL database storage with real-time synchronization.
 
-**Structured Data Modeling:**
+**3. Structured Data Modeling:**
 
 * Designed data models in Cloud Firestore to efficiently store and retrieve user profiles, status updates, and other app-related information.
 * Utilized Firestore collections and documents for organized data management.
@@ -27,9 +27,9 @@ The following functionality is completed:
 <img src='https://j.gifs.com/VvDVXW.gif' title='Video Walkthrough' width='' height='750px' alt='Video Walkthrough' />
 
 
-## Notes
+## TechStack
 
-I have implemented this project usin Kotlin
+`Kotlin` `Firebase` `Android` `Firebase-Authentication` `Firebase-Realtime-Database` `Cloud` `Cloud-Functions`
 
 ## License
 
