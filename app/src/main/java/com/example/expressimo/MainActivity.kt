@@ -4,6 +4,9 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputFilter
+import android.text.InputFilter.LengthFilter
+import android.text.Spanned
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
@@ -13,6 +16,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -92,8 +96,42 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    inner class EmojiFilter: InputFilter{
+        override fun filter(
+            source: CharSequence?, start: Int, end: Int, dest: Spanned?, dstart: Int, dend: Int): CharSequence {
+            // If the added text is valid, return Source
+            if(source == null || source.isBlank()){
+                return ""
+            }
+            Log.i(TAG, "Added text $source and it has ${source.length} characters.")
+            val validCharTypes = listOf(Character.SURROGATE, Character.NON_SPACING_MARK, Character.OTHER_SYMBOL).map { it.toInt() }
+
+            //if its invalid return "" i.e empty string.
+            for (inputChar in source){
+                val type = Character.getType(inputChar)
+                Log.i(TAG,"Input Character is of type $type" )
+                if (!validCharTypes.contains(type)){
+                    Toast.makeText(this@MainActivity, "Enter a valid emoji",Toast.LENGTH_SHORT).show()
+                    return ""
+                }
+            }
+            return source
+        }
+
+    }
+
     private fun showAlertDialog() {
         val editText = EditText(this)
+        // To only restrict the user to add only emojis status and no text, also restrict the length
+
+        // 1. Emoji Filter
+        val emojiFilter= EmojiFilter()
+
+
+
+        // 2. Length Filter
+        val lengthFilter= InputFilter.LengthFilter(16)
+        editText.filters= arrayOf(lengthFilter,emojiFilter)
         val dialog = AlertDialog.Builder(this)
             .setTitle("Update your Emojis")
             .setView(editText)
@@ -103,6 +141,24 @@ class MainActivity : AppCompatActivity() {
 
         dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener{
             Log.i(TAG, "clicked on positive button")
+
+            val emojisEntered = editText.text.toString()
+            if (emojisEntered.isBlank()){
+                Toast.makeText(this, "Cannot leave the status blank!",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val currentUser = auth.currentUser
+            if (currentUser == null){
+                Toast.makeText(this, "User not Signed In",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+
+            }
+
+            //Update the firestore with the new emojis
+            db.collection("users").document(currentUser.uid)
+                .update("emojis", emojisEntered)
+            dialog.dismiss()
         }
     }
 }
