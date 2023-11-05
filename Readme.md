@@ -24,7 +24,8 @@ The following functionality is completed:
 * Designed data models in Cloud Firestore to efficiently store and retrieve user profiles, status updates, and other app-related information.
 * Utilized Firestore collections and documents for organized data management.
 
-<img src='https://j.gifs.com/DqD10x.gif' title='Video Walkthrough' width='' height='750px' alt='Video Walkthrough' />
+## Demo
+
 
 
 ## TechStack
