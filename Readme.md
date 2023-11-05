@@ -25,8 +25,7 @@ The following functionality is completed:
 * Utilized Firestore collections and documents for organized data management.
 
 ## Demo
-
-
+![screenrecorder-2023-10-03-16-50-05-213_oeIlP2zp](https://github.com/vibhorg27/Expressimo/assets/90828247/523bc737-b409-47dd-8ad8-eed6cf5f3d14)
 
 ## TechStack
 
